@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EVM Watchtower</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span>EW</span>
+          <div>
+            <h1>EVM Watchtower</h1>
+            <p>地址全链活跃监控</p>
+          </div>
+        </div>
+        <button id="connect">连接钱包登录</button>
+        <p id="wallet" class="muted">未登录</p>
+
+        <section class="panel compact">
+          <h2>Telegram 通知</h2>
+          <label>Bot Token</label>
+          <input id="botToken" placeholder="123:ABC" />
+          <label>Chat ID</label>
+          <input id="chatId" placeholder="123456789" />
+          <button id="saveTelegram">保存 Telegram</button>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <section class="panel">
+          <h2>添加监控地址</h2>
+          <div class="form-grid">
+            <input id="address" placeholder="0x..." />
+            <input id="label" placeholder="标签，例如 whale / treasury" />
+          </div>
+          <div id="chains" class="chain-grid"></div>
+          <button id="addMonitor">添加监控</button>
+        </section>
+
+        <section class="panel">
+          <h2>已监控地址</h2>
+          <div id="monitors" class="list"></div>
+        </section>
+
+        <section class="panel">
+          <h2>实时事件</h2>
+          <div id="events" class="list"></div>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+

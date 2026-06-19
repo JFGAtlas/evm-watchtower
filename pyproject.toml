@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evm-watchtower"
+version = "0.1.0"
+description = "EVM address activity monitor with wallet login and Telegram alerts."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "JFGAtlas" }]
+keywords = ["evm", "ethereum", "base", "bsc", "telegram", "wallet", "monitoring", "web3"]
+dependencies = [
+  "eth-account>=0.13",
+  "eth-utils>=5.0",
+  "fastapi>=0.110",
+  "httpx>=0.27",
+  "pydantic>=2.7",
+  "uvicorn[standard]>=0.29",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+evm-watchtower = "evm_watchtower.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["evm_watchtower*"]
+
+[tool.setuptools.package-data]
+evm_watchtower = ["static/*"]
+
+[tool.ruff]
+line-length = 100

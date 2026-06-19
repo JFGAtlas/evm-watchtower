@@ -1,0 +1,15 @@
+services:
+  evm-watchtower:
+    build: ..
+    ports:
+      - "8877:8877"
+    env_file:
+      - ../.env
+    volumes:
+      - watchtower-data:/data
+    environment:
+      DATABASE_PATH: /data/watchtower.sqlite3
+
+volumes:
+  watchtower-data:
+
