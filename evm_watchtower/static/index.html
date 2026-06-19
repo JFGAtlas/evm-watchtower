@@ -19,8 +19,9 @@
         </div>
         <button id="connect">连接钱包登录</button>
         <p id="wallet" class="muted">未登录</p>
+        <p id="status" class="status">请使用钱包浏览器或安装 MetaMask 后登录。</p>
 
-        <section class="panel compact">
+        <section class="side-card compact">
           <h2>Telegram 通知</h2>
           <label>Bot Token</label>
           <input id="botToken" placeholder="123:ABC" />
@@ -28,31 +29,83 @@
           <input id="chatId" placeholder="123456789" />
           <button id="saveTelegram">保存 Telegram</button>
         </section>
+
+        <section class="side-card network-card">
+          <h2>监控网络</h2>
+          <div class="mini-chain"><span></span> Ethereum</div>
+          <div class="mini-chain"><span></span> Base</div>
+          <div class="mini-chain"><span></span> BNB Chain</div>
+        </section>
       </aside>
 
       <section class="workspace">
-        <section class="panel">
-          <h2>添加监控地址</h2>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Realtime EVM Activity Monitor</p>
+            <h2>全链地址行为监控台</h2>
+          </div>
+          <div class="live-pill"><span></span> Live polling</div>
+        </header>
+
+        <section class="stats">
+          <div class="stat">
+            <span>监控地址</span>
+            <strong id="monitorCount">0</strong>
+          </div>
+          <div class="stat">
+            <span>捕获事件</span>
+            <strong id="eventCount">0</strong>
+          </div>
+          <div class="stat">
+            <span>支持主网</span>
+            <strong>3</strong>
+          </div>
+        </section>
+
+        <section class="panel add-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Address Watch</p>
+              <h2>添加监控地址</h2>
+            </div>
+          </div>
           <div class="form-grid">
-            <input id="address" placeholder="0x..." />
-            <input id="label" placeholder="标签，例如 whale / treasury" />
+            <label>
+              地址
+              <input id="address" placeholder="0x..." />
+            </label>
+            <label>
+              标签
+              <input id="label" placeholder="whale / treasury / trader" />
+            </label>
           </div>
           <div id="chains" class="chain-grid"></div>
-          <button id="addMonitor">添加监控</button>
+          <button id="addMonitor" class="wide">添加监控</button>
         </section>
 
-        <section class="panel">
-          <h2>已监控地址</h2>
-          <div id="monitors" class="list"></div>
-        </section>
+        <section class="content-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Watchlist</p>
+                <h2>已监控地址</h2>
+              </div>
+            </div>
+            <div id="monitors" class="list empty"></div>
+          </section>
 
-        <section class="panel">
-          <h2>实时事件</h2>
-          <div id="events" class="list"></div>
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Activity Feed</p>
+                <h2>实时事件</h2>
+              </div>
+            </div>
+            <div id="events" class="list empty"></div>
+          </section>
         </section>
       </section>
     </main>
     <script src="/static/app.js"></script>
   </body>
 </html>
-
