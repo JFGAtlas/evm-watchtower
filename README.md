@@ -10,6 +10,12 @@ Static project page:
 https://jfgatlas.github.io/evm-watchtower/
 ```
 
+Live hosted app:
+
+```text
+http://131.186.56.210/
+```
+
 ## Features
 
 - EVM wallet login with signed-message verification
